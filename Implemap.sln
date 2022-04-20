@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Implemap.Api", "Implemap.Api\Implemap.Api.csproj", "{152282C7-CD11-45A3-BAFA-1D5B12EF39F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Implemap.Client", "Implemap.Client\Implemap.Client.csproj", "{9229802C-0140-44B0-832E-B0FBEEC7693F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{152282C7-CD11-45A3-BAFA-1D5B12EF39F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{152282C7-CD11-45A3-BAFA-1D5B12EF39F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{152282C7-CD11-45A3-BAFA-1D5B12EF39F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{152282C7-CD11-45A3-BAFA-1D5B12EF39F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9229802C-0140-44B0-832E-B0FBEEC7693F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9229802C-0140-44B0-832E-B0FBEEC7693F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9229802C-0140-44B0-832E-B0FBEEC7693F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9229802C-0140-44B0-832E-B0FBEEC7693F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
