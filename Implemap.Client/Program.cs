@@ -1,13 +1,15 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using Implemap.Client.Data;
+using Implemap.Client.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
+
+// Register app services
+// -> GeoJson
+builder.Services.AddHttpClient<GeoJsonService>();
+builder.Services.AddSingleton<GeoJsonService>();
 
 var app = builder.Build();
 
