@@ -3,6 +3,7 @@
 @using Implemap.Client.Services
 
 @inject GeoJsonService _geoJsonService;
+@inject IJSRuntime JS
 
 <PageTitle>Mapbox | Implemap</PageTitle>
 
@@ -14,6 +15,8 @@
     <p>Json: @json</p>
 }
 
+<div id='map' style="height: 600px">Mapbox Loads here</div>
+
 @code {
     private List<string> GeoJson { get; set; } = new();
 
@@ -21,4 +24,9 @@
     {
         GeoJson = await _geoJsonService.Get();
     }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JS.InvokeVoidAsync("loadMapBox");
+    }    
 }
