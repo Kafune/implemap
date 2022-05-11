@@ -1,4 +1,4 @@
-# Implemap
+# ImpleMap
 
 > ***Imple***ment ***Map***box
 
@@ -22,7 +22,7 @@ For this workshop, you will need a Mapbox account. You can sign up for free at h
 
 The goal of this workshop is to have a working Mapbox example with at least one clickable datapoint. Once you have created an account you can start following these steps.
 
-1. **Installation**. Include the JavaScript and CSS files in the <head> of your HTML file, _Layout.cshtml in Blazor. The CSS file is required to display the map and make elements like Popups and Markers work.
+1. **Installation**. Include the [Mapbox installation](https://docs.mapbox.com/mapbox-gl-js/guides/install/) JavaScript and CSS files in the <head> of your HTML file (_Layout.cshtml in Blazor). The CSS file is required to display the map and make elements like Popups and Markers work.
 
 `<script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>`<br/>
 `<link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />`
