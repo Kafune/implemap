@@ -7,9 +7,11 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
 // Register app services
-// -> GeoJson
-builder.Services.AddHttpClient<GeoJsonService>();
-builder.Services.AddSingleton<GeoJsonService>();
+// -> Location
+builder.Services.AddHttpClient<LocationService>();
+builder.Services.AddSingleton<ILocationService, LocationService>();
+// -> Mapbox
+builder.Services.AddSingleton<IMapboxService, MapboxService>();
 
 var app = builder.Build();
 

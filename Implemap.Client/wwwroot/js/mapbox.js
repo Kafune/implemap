@@ -1,34 +1,39 @@
-﻿
-// todo: maybe move this somewhere sensible where it still has access to <head>
+﻿/** @typedef {{ id: number, latitude: number, longitude: number, name: string }} Location */
 
-mapboxgl.accessToken = 'pk.eyJ1IjoidmlrdG9ydngiLCJhIjoiY2wyYWc5aWoyMDU4MDNpc2NpeHRhd3BnbiJ9.0ToPaRrFSK_tM7pZDZR2Ww';
 
-var listings = [{
-    "id": 2818,
-    "latitude": 52.36435,
-    "longitude": 4.94358,
-    "name": "Quiet Garden View Room & Super Fast WiFi"
-}, {
-    "id": 1149694,
-    "latitude": 52.38231,
-    "longitude": 4.84866,
-    "name": "Cosy city apartment"
-}];
+/**
+ * A function which loads the Mapbox library
+ * @param token {string} The token which is used for authentication of the Mapbox library
+ */
+window.loadMapBox = (token) => {
+    mapboxgl.accessToken = token;
 
-window.loadMapBox = () => {
-    const map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/viktorvx/cl28zqp75000015pqm7dffov8', // style URL (also contains data layer)
-        center: [4.90841, 52.3636], // starting position [lng, lat]
-        zoom: 11 // starting zoom
+    window.map = new mapboxgl.Map({
+        /**
+         * The ID of the HTML container in which Mapbox should be displayed
+         */
+        container: 'map',
+        /**
+         * The URL of the Map style to load (Note: this also contains the data layer)
+         */
+        style: 'mapbox://styles/viktorvx/cl28zqp75000015pqm7dffov8',
+        /**
+         * The starting position of the map [longitude, latitude]
+         */
+        center: [4.90841, 52.3636],
+        /**
+         * The starting zoom level (how far the map should be zoomed)
+         */
+        zoom: 11
     });
 
-    listings.forEach(e => {
-        console.log(e);
-        const marker = new mapboxgl.Marker().setLngLat([e.longitude, e.latitude]).addTo(map);
-        // use getElement to add an event
-        marker.getElement().addEventListener('click', () => {
-            alert(e.id + ": " + e.name);
-        });
-    });
+}
+
+/**
+ * A function that adds a location to the map
+ * @param location {Location} The location to add to the map
+ */
+window.addLocationToMap = (location) => {
+    const marker = new mapboxgl.Marker().setLngLat([location.longitude, location.latitude]).addTo(window.map);
+    marker.getElement().addEventListener('click', () => alert(`Visit location #${location.id}, also known as '${location.name}', all the way over here!`));
 }

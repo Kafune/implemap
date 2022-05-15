@@ -1,32 +1,39 @@
 @page "/map";
 
 @using Implemap.Client.Services
+@using Implemap.Client.Models
 
-@inject GeoJsonService _geoJsonService;
-@inject IJSRuntime JS
+@inject ILocationService _locationService;
+@inject IMapboxService _mapboxService;
+@inject IJSRuntime _js
 
 <PageTitle>Mapbox | Implemap</PageTitle>
 
-
-<h1>My cool list</h1>
-
-@foreach (var json in GeoJson)
-{
-    <p>Json: @json</p>
-}
-
-<div id='map' style="height: 600px">Mapbox Loads here</div>
+<div id="map" class="h-100">
+    @*
+        The Mapbox library loads within this `<div />` element.
+        So, if you would like to apply specific styles to the map [or box :)],
+        then you should that on this element.
+    *@
+</div>
 
 @code {
-    private List<string> GeoJson { get; set; } = new();
+    private List<Location> Locations { get; set; } = new();
 
-    protected override async Task OnInitializedAsync()
+    private async void AddLocationToMap(Location location)
     {
-        GeoJson = await _geoJsonService.Get();
+        await _js.InvokeVoidAsync("addLocationToMap", location);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await JS.InvokeVoidAsync("loadMapBox");
-    }    
+        if (firstRender)
+        {
+            var token = _mapboxService.GetMapboxToken();
+            await _js.InvokeVoidAsync("loadMapBox", token);
+            Locations = await _locationService.Get();
+            Locations.ForEach(AddLocationToMap);
+        }
+    }
+
 }
