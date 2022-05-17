@@ -31,8 +31,10 @@
         {
             var token = _mapboxService.GetMapboxToken();
             await _js.InvokeVoidAsync("loadMapBox", token);
+            /* for [WORKSHOP STEP 6: MARKERS]
             Locations = await _locationService.Get();
             Locations.ForEach(AddLocationToMap);
+            */
         }
     }
 

@@ -5,6 +5,7 @@
  * A function which loads the Mapbox library
  * @param token {string} The token which is used for authentication of the Mapbox library
  */
+
 window.loadMapBox = (token) => {
     mapboxgl.accessToken = token;
 
@@ -14,9 +15,9 @@ window.loadMapBox = (token) => {
          */
         container: 'map',
         /**
-         * The URL of the Map style to load (Note: this also contains the data layer)
+         * The URL of the Map style to load (Note: this also contains the data layer). Add your *style URL* here for [WORKSHOP STEP 4: CONFIGURATION].
          */
-        style: 'mapbox://styles/viktorvx/cl28zqp75000015pqm7dffov8',
+        style: '',
         /**
          * The starting position of the map [longitude, latitude]
          */
@@ -28,8 +29,10 @@ window.loadMapBox = (token) => {
     })
 
     /**
-     * Adds a searchbar to the map
+     * Adds a searchbar to the map for [WORKSHOP STEP 7: SEARCHBAR]
      */
+
+    /*
     window.map.addControl(
         
         new MapboxGeocoder({
@@ -37,13 +40,17 @@ window.loadMapBox = (token) => {
             mapboxgl: mapboxgl
         })
     );
+    */
 }
 
 /**
- * A function that adds a location to the map
+ * A function that adds a location to the map for [WORKSHOP STEP 6: MARKERS]
  * @param location {Location} The location to add to the map
  */
+
+/*
 window.addLocationToMap = (location) => {
     const marker = new mapboxgl.Marker().setLngLat([location.longitude, location.latitude]).addTo(window.map);
     marker.getElement().addEventListener('click', () => alert(`Visit location #${location.id}, also known as '${location.name}', all the way over here!`));
 }
+*/
