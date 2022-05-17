@@ -25,8 +25,18 @@ window.loadMapBox = (token) => {
          * The starting zoom level (how far the map should be zoomed)
          */
         zoom: 11
-    });
+    })
 
+    /**
+     * Adds a searchbar to the map
+     */
+    window.map.addControl(
+        
+        new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        })
+    );
 }
 
 /**
