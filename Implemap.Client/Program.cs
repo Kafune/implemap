@@ -23,6 +23,21 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.Use(async (context, next) =>
+{
+    context.Response.Headers.Add("Content-Security-Policy", "base-uri 'self'; " +
+        "connect - src 'self' ws: https://*; " +
+        "default - src 'self'; " +
+        "img - src data: https:; " +
+        "object-src 'none'; " +
+        "script - src 'self' 'sha256-v8v3RKRPmN4odZ1CWM5gw80QKPCCWMcpNeOmimNL2AA=' 'unsafe-eval' https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js;" +
+        "style - src 'self' https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css " +
+        "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css; " +
+        "upgrade - insecure - requests;" +
+        "worker - src 'self' blob:; ");
+    await next();
+});
+
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
