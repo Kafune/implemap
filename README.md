@@ -40,6 +40,6 @@ The goal of this workshop is to have a working Mapbox example with clickable dat
 
 5. ***Starting Multiple VS Projects** In case Visual Studio only gives the option to start either the client or the api, right click the Solution file in the Solution Explorer and Click **Properties**. Under the **Startup Project** tab choose **Multiple Startup Projects** and set both project to 'Start'.*
 
-6. **Markers.** In this step we will add the actual clickable markers to our code. Uncomment the `window.map.addControl` function in `\Implemap.Client\wwwroot\js\mapbox.js`. This function creates new markers for our datapoints. Also uncomment the two lines that call this function in the `OnAfterRenderAsync` function in `Implemap.Client\Pages\Map\MapIndex.razor`. Now our page will fetch the location data from our backend and place add it to the Mapbox map.
+6. **Markers.** In this step we will add the actual clickable markers to our code. Uncomment the `window.addLocationToMap` function at the bottom of `\Implemap.Client\wwwroot\js\mapbox.js`. This function creates new markers for our datapoints. Also uncomment the two lines that call this function in the `OnAfterRenderAsync` function in `Implemap.Client\Pages\Map\MapIndex.razor`. Now our page will fetch the location data from our backend and place add it to the Mapbox map.
 
 7. **Searchbar.** Finally, uncomment the `window.map.addControl` function in `\Implemap.Client\wwwroot\js\mapbox.js` to add a searchbar to your Mapbox map. And with that, you have a fully functional, interactive map with minimal effort.
