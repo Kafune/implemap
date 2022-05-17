@@ -34,7 +34,6 @@ window.loadMapBox = (token) => {
 
     /*
     window.map.addControl(
-        
         new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
             mapboxgl: mapboxgl
