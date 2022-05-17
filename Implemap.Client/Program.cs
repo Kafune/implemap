@@ -23,7 +23,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.Use(async (context, next) =>
+/*app.Use(async (context, next) =>
 {
     context.Response.Headers.Add("Content-Security-Policy", "base-uri 'self'; " +
         "connect - src 'self' ws: https://*; " +
@@ -36,7 +36,7 @@ app.Use(async (context, next) =>
         "upgrade - insecure - requests;" +
         "worker - src 'self' blob:; ");
     await next();
-});
+});*/
 
 app.UseHttpsRedirection();
 
