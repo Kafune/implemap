@@ -23,6 +23,8 @@ Clone this project and open it with ***Visual Studio 2022 Preview*** or ***JetBr
 
 The goal of this workshop is to have a working Mapbox example with clickable datapoints and a searchbar. Once you have created an account you can start following these steps.
 
+0. **Pre:** Make sure to comment out the content-security-policy settings in `Implemap.Client/Pages/_Layout.cshtml`.
+
 1. **Installation**. Include the [Mapbox installation](https://docs.mapbox.com/mapbox-gl-js/guides/install/) JavaScript and CSS files in the `<head>` of your HTML file (`\Implemap.Client\Pages\_Layout.cshtml` in Blazor). The CSS file is required to display the map and make elements like Popups and Markers work. Also add the [Mapbox Geocoder Plugin](https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder/) tags, which will be used to add a searchbar later. You should have the following tags in the `<head>` of your HTML file:
 
 ```html
